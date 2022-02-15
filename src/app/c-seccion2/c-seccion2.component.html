@@ -1,1 +1,24 @@
-<p>Sección 2: <label *ngIf="nombrePersona">Protagonizada por {{nombrePersona}}</label></p>
+<form [formGroup]="formSeccion2">
+
+    <label class="form-label">Comentarios: </label>
+    <input id="usuario" name="usuario" type="text" formControlName="usuario" placeholder="Usuario" class="form-control" aria-describedby="inputRequiredUserName" required>
+    <div class="input-group-append form-control-feedback" *ngIf="usuario.errors?.['required']">
+        <div class="col">
+            <p id="inputRequiredUserName" class="form-text text-danger ms-2">Obligatorio.</p>
+        </div>
+    </div>
+
+    <input id="last-name" type="text" formControlName="comentario" placeholder="Comentario" class="form-control mt-3" aria-describedby="inputRequiredComentario" required>
+    <div class="input-group-append form-control-feedback" *ngIf="comentario.errors?.['required']">
+        <div class="col">
+            <p id="inputRequiredComentario" class="form-text text-danger ms-2">Obligatorio.</p>
+        </div>
+    </div>
+    <div class="input-group-append form-control-feedback" *ngIf="comentario.errors?.['minlength']">
+        <div class="col">
+            <p id="inputRequiredComentario" class="form-text text-danger ms-2">Al menos 10 caracteres.</p>
+        </div>
+    </div>
+        
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="!formSeccion2.valid" (click)="escribirComentario()">Enviar</button>
+  </form>
