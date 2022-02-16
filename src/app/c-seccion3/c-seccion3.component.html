@@ -1,1 +1,21 @@
 <p>Sección 3: {{ciudad}} {{poblacion}}</p>
+
+<h1>Listado de productos:</h1>
+
+<table class="table table-striped">
+    <thead>
+        <td>ID</td>
+        <td>Maker</td>
+        <td>Titulo</td>
+        <td>Descripcion</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productos">
+            <td> {{product.Id}}</td>
+            <td> {{product.Maker}}</td>
+            <td> {{product.Title}}</td>
+            <td> {{product.Description}}</td>
+        </tr>
+    </tbody>
+    
+</table>
